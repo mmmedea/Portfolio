@@ -1,0 +1,161 @@
+*{
+margin:0;
+padding:0;
+box-sizing:border-box;
+}
+
+body{
+font-family:Poppins;
+background:#0f0f14;
+color:white;
+line-height:1.6;
+}
+
+.container{
+width:90%;
+max-width:1100px;
+margin:auto;
+}
+
+header{
+background:#121218;
+position:fixed;
+width:100%;
+top:0;
+z-index:1000;
+border-bottom:1px solid #222;
+}
+
+.nav{
+display:flex;
+justify-content:space-between;
+align-items:center;
+padding:20px 0;
+}
+
+.logo{
+color:#8b5cf6;
+}
+
+nav a{
+color:white;
+text-decoration:none;
+margin-left:20px;
+transition:0.3s;
+}
+
+nav a:hover{
+color:#8b5cf6;
+}
+
+.hero{
+height:100vh;
+display:flex;
+align-items:center;
+text-align:center;
+}
+
+.hero span{
+color:#8b5cf6;
+}
+
+.hero-buttons{
+margin-top:20px;
+}
+
+.btn{
+background:#8b5cf6;
+padding:12px 24px;
+border-radius:6px;
+color:white;
+text-decoration:none;
+margin-right:10px;
+transition:0.3s;
+}
+
+.btn:hover{
+background:#7c4dff;
+}
+
+.btn-outline{
+border:1px solid #8b5cf6;
+padding:12px 24px;
+border-radius:6px;
+text-decoration:none;
+color:white;
+}
+
+.section-title{
+text-align:center;
+margin-bottom:40px;
+font-size:32px;
+}
+
+.grid{
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
+gap:25px;
+}
+
+.card{
+background:#18181f;
+padding:25px;
+border-radius:10px;
+transition:0.3s;
+}
+
+.card:hover{
+transform:translateY(-5px);
+box-shadow:0 10px 30px rgba(139,92,246,0.3);
+}
+
+#services,
+#portfolio,
+#skills,
+#about,
+#contact{
+padding:100px 0;
+}
+
+.gallery{
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
+gap:15px;
+}
+
+.gallery img{
+width:100%;
+border-radius:10px;
+transition:0.3s;
+}
+
+.gallery img:hover{
+transform:scale(1.05);
+}
+
+.about{
+max-width:700px;
+text-align:center;
+}
+
+.contact-links{
+display:flex;
+justify-content:center;
+gap:20px;
+flex-wrap:wrap;
+}
+
+.contact-links a{
+background:#8b5cf6;
+padding:12px 20px;
+border-radius:6px;
+text-decoration:none;
+color:white;
+}
+
+footer{
+text-align:center;
+padding:20px;
+background:#121218;
+border-top:1px solid #222;
+}
