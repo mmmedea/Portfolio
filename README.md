@@ -1,10 +1,5 @@
-# Portfolio
+# Professional Portfolio
 This project is a personal portfolio website designed to showcase my skills as a Virtual Assistant with additional strengths in content creation and digital design. The website highlights my ability to support growing e-commerce and wellness brands through organization, social media management, and creative production.
-
-Virtual Assistant Portfolio Website
-
-A personal portfolio website designed to showcase my skills as a Virtual Assistant for e-commerce and creative brands. The website presents my services, creative work, and digital skills that help small businesses stay organized and grow their online presence.
-This project highlights my ability to combine virtual assistance, social media support, and content creation in one place.
 
 About the Project
 This portfolio was created to present my professional profile as a remote Virtual Assistant who can also support creative and digital tasks.
