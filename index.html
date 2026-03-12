@@ -8,6 +8,7 @@
 <link rel="stylesheet" href="style.css">
 
 <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
 </head>
 
 <body>
@@ -15,7 +16,9 @@
 <header>
 <div class="container nav">
 
-<h1 class="logo">MM</h1>
+<div class="logo">
+<img src="images/logo.png" alt="MM Logo">
+</div>
 
 <nav>
 <a href="#home">Home</a>
@@ -32,12 +35,14 @@
 
 <section id="home" class="hero">
 
-<div class="container hero-content">
+<div class="container hero-grid">
 
-<h2>Hello, I'm <span>Maricris Martinez</span></h2>
+<div class="hero-left">
+
+<h2>Good day, I'm <span>Maricris M. Martinez</span></h2>
 
 <p>
-Virtual Assistant helping e-commerce and creative brands stay organized, manage social media, and create engaging content.
+Virtual Assistant supporting e-commerce and creative brands with organization, social media management, and content creation. I help founders streamline daily tasks, manage online communities, schedule posts, and maintain well-organized digital workflows.
 </p>
 
 <div class="hero-buttons">
@@ -47,7 +52,17 @@ Virtual Assistant helping e-commerce and creative brands stay organized, manage 
 
 </div>
 
+
+<div class="hero-right">
+
+<img src="images/profile.jpg" class="profile-pic">
+
+</div>
+
+</div>
+
 </section>
+
 
 
 <section id="services">
@@ -85,26 +100,99 @@ Virtual Assistant helping e-commerce and creative brands stay organized, manage 
 </section>
 
 
+
 <section id="portfolio">
 
 <div class="container">
 
 <h2 class="section-title">Work Samples</h2>
 
-<div class="gallery">
+<div class="carousel-container">
 
-<img src="images/sample1.jpg">
-<img src="images/sample2.jpg">
-<img src="images/sample3.jpg">
-<img src="images/sample4.jpg">
-<img src="images/sample5.jpg">
-<img src="images/sample6.jpg">
+<div class="carousel">
+
+<button class="prev">&#10094;</button>
+
+<div class="carousel-track">
+
+<div class="slide"><img src="images/sample1.jpg"></div>
+<div class="slide"><img src="images/sample2.jpg"></div>
+<div class="slide"><img src="images/sample3.jpg"></div>
+<div class="slide"><img src="images/sample4.jpg"></div>
+<div class="slide"><img src="images/sample5.jpg"></div>
+<div class="slide"><img src="images/sample6.jpg"></div>
 
 </div>
 
+<button class="next">&#10095;</button>
+
 </div>
 
+
+<div class="carousel">
+
+<button class="prev">&#10094;</button>
+
+<div class="carousel-track">
+
+<div class="slide"><img src="images/sample7.jpg"></div>
+<div class="slide"><img src="images/sample8.jpg"></div>
+<div class="slide"><img src="images/sample9.jpg"></div>
+<div class="slide"><img src="images/sample10.jpg"></div>
+<div class="slide"><img src="images/sample11.jpg"></div>
+<div class="slide"><img src="images/sample12.jpg"></div>
+
+</div>
+
+<button class="next">&#10095;</button>
+
+</div>
+
+
+<div class="carousel">
+
+<button class="prev">&#10094;</button>
+
+<div class="carousel-track">
+
+<div class="slide"><img src="images/sample13.jpg"></div>
+<div class="slide"><img src="images/sample14.jpg"></div>
+<div class="slide"><img src="images/sample15.jpg"></div>
+<div class="slide"><img src="images/sample16.jpg"></div>
+<div class="slide"><img src="images/sample17.jpg"></div>
+<div class="slide"><img src="images/sample18.jpg"></div>
+
+</div>
+
+<button class="next">&#10095;</button>
+
+</div>
+
+
+<div class="carousel">
+
+<button class="prev">&#10094;</button>
+
+<div class="carousel-track">
+
+<div class="slide"><img src="images/sample19.jpg"></div>
+<div class="slide"><img src="images/sample20.jpg"></div>
+<div class="slide"><img src="images/sample21.jpg"></div>
+<div class="slide"><img src="images/sample22.jpg"></div>
+<div class="slide"><img src="images/sample23.jpg"></div>
+<div class="slide"><img src="images/sample24.jpg"></div>
+
+</div>
+
+<button class="next">&#10095;</button>
+
+</div>
+
+
+</div>
+</div>
 </section>
+
 
 
 <section id="skills">
@@ -122,7 +210,7 @@ Virtual Assistant helping e-commerce and creative brands stay organized, manage 
 
 <div class="card">
 <h3>Video Editing</h3>
-<p>CapCut, Premiere Pro, Short-form video editing</p>
+<p>CapCut, Premiere Pro</p>
 </div>
 
 <div class="card">
@@ -142,6 +230,7 @@ Virtual Assistant helping e-commerce and creative brands stay organized, manage 
 </section>
 
 
+
 <section id="about">
 
 <div class="container about">
@@ -149,12 +238,13 @@ Virtual Assistant helping e-commerce and creative brands stay organized, manage 
 <h2 class="section-title">About Me</h2>
 
 <p>
-I help growing brands stay organized while also creating engaging content for their online presence. My background includes virtual assistance, design, and digital tools which allows me to support both the operational and creative side of a business.
+I help growing brands stay organized while also creating engaging content for their online presence.
 </p>
 
 </div>
 
 </section>
+
 
 
 <section id="contact">
@@ -166,11 +256,8 @@ I help growing brands stay organized while also creating engaging content for th
 <div class="contact-links">
 
 <a href="mailto:maricrismartinez1818@gmail.com">Email</a>
-
 <a href="https://github.com/mmmedea" target="_blank">Github</a>
-
 <a href="https://linkedin.com" target="_blank">LinkedIn</a>
-
 <a href="https://instagram.com/sosyal_medea" target="_blank">Instagram</a>
 
 </div>
@@ -181,9 +268,7 @@ I help growing brands stay organized while also creating engaging content for th
 
 
 <footer>
-
 <p>© 2026 Maricris Martinez</p>
-
 </footer>
 
 <script src="script.js"></script>

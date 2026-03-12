@@ -1,17 +1,34 @@
-const cards = document.querySelectorAll(".card");
+const carousels = document.querySelectorAll(".carousel");
 
-const observer = new IntersectionObserver(entries=>{
-entries.forEach(entry=>{
-if(entry.isIntersecting){
-entry.target.style.opacity=1;
-entry.target.style.transform="translateY(0)";
+carousels.forEach(carousel => {
+
+const track = carousel.querySelector(".carousel-track");
+const slides = carousel.querySelectorAll(".slide");
+
+let index = 0;
+
+carousel.querySelector(".next").addEventListener("click", () => {
+
+index++;
+
+if(index >= slides.length){
+index = 0;
 }
-});
+
+track.style.transform = `translateX(-${index * 100}%)`;
+
 });
 
-cards.forEach(card=>{
-card.style.opacity=0;
-card.style.transform="translateY(40px)";
-card.style.transition="0.6s";
-observer.observe(card);
+carousel.querySelector(".prev").addEventListener("click", () => {
+
+index--;
+
+if(index < 0){
+index = slides.length - 1;
+}
+
+track.style.transform = `translateX(-${index * 100}%)`;
+
+});
+
 });
