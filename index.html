@@ -1,15 +1,13 @@
-I've transformed your portfolio into a modern, Discord-inspired design with a violet and dark theme. The hero section remains left-aligned with the image on the right, and all your original descriptions and links are untouched. I've added smooth animations, functional carousels with sliding transitions, and a cohesive dark interface with vibrant violet accents.
-```html
 <!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Maricris M. Martinez · VA Portfolio</title>
-  <!-- Poppins font (modern & clean) -->
+  
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
   <style>
-    /* ---------- DISCORD / MODERN DARK THEME ---------- */
+  
     * {
       margin: 0;
       padding: 0;
@@ -31,13 +29,13 @@ I've transformed your portfolio into a modern, Discord-inspired design with a vi
     }
 
     /* ----- GLOW & TRANSITIONS ----- */
-    .card, .btn, .btn-outline, nav a, .profile-pic, .slide img {
+    .card, .btn, .btn-outline, nav a, .profile-pic, .slide img, .about-img img {
       transition: all 0.25s ease-in-out;
     }
 
-    /* ----- HEADER (sticky, glassy) ----- */
+    
     header {
-      background: #121218;          /* dark but slightly lighter */
+      background: #121218;          
       border-bottom: 1px solid #2c2c3a;
       position: sticky;
       top: 0;
@@ -167,11 +165,10 @@ I've transformed your portfolio into a modern, Discord-inspired design with a vi
 
     .profile-pic {
       max-width: 100%;
-      width: 380px;
+      width: 300px;               /* smaller / medium size as requested */
       border-radius: 24px;
       box-shadow: 0 20px 30px -10px rgba(0, 0, 0, 0.7), 0 0 0 2px #8b5cf6 inset;
       object-fit: cover;
-      transition: transform 0.3s, box-shadow 0.3s;
     }
 
     .profile-pic:hover {
@@ -309,16 +306,44 @@ I've transformed your portfolio into a modern, Discord-inspired design with a vi
       transform: scale(1.08);
     }
 
-    /* ----- ABOUT (centered, softer) ----- */
-    #about .about p {
-      max-width: 800px;
-      margin: 2rem auto 0;
-      text-align: center;
+    /* ----- ABOUT (image left / text right) ----- */
+    .about-grid {
+      display: grid;
+      grid-template-columns: 1fr 1.5fr;
+      gap: 3rem;
+      align-items: center;
+      margin-top: 2rem;
+    }
+
+    .about-img {
+      display: flex;
+      justify-content: center;
+    }
+
+    .about-img img {
+      max-width: 100%;
+      width: 320px;                /* medium size, matching hero pic */
+      border-radius: 24px;
+      box-shadow: 0 20px 30px -10px rgba(0, 0, 0, 0.7), 0 0 0 2px #8b5cf6 inset;
+      object-fit: cover;
+    }
+
+    .about-img img:hover {
+      transform: scale(1.02);
+      box-shadow: 0 25px 35px -8px #8b5cf6, 0 0 0 2px #8b5cf6 inset;
+    }
+
+    .about-text {
       background: #18181f;
       padding: 2rem;
       border-radius: 32px;
       border: 1px solid #2c2c3a;
       color: #d0d0dd;
+      text-align: left;
+    }
+
+    .about-text p {
+      margin-bottom: 1rem;
     }
 
     /* ----- CONTACT BUTTONS (violet) ----- */
@@ -383,7 +408,15 @@ I've transformed your portfolio into a modern, Discord-inspired design with a vi
         align-items: center;
       }
       .profile-pic {
-        width: 280px;
+        width: 250px; /* even smaller on mobile */
+      }
+      .about-grid {
+        grid-template-columns: 1fr;
+        gap: 2rem;
+        text-align: center;
+      }
+      .about-text {
+        text-align: center;
       }
     }
   </style>
@@ -427,15 +460,15 @@ I've transformed your portfolio into a modern, Discord-inspired design with a vi
     <div class="container">
       <h2 class="section-title">Services</h2>
       <div class="grid">
-        <div class="card"><h3>Virtual Assistant</h3><p>I provide virtual assistant support by helping businesses manage daily tasks and stay organized. This includes responding to social media comments and messages to keep communication active with customers and followers. I also assist with customer email support by answering inquiries and helping resolve basic concerns. In addition, I help organize calendars, manage tasks, and keep schedules on track. When needed, I also handle research and other administrative work to support business operations and make day-to-day processes run more smoothly.</p></div>
-        <div class="card"><h3>Social Media</h3><p>I help manage social media accounts by organizing and scheduling content so posts are published consistently and at the right time. I also write clear and engaging captions that match the brand’s voice and help connect with the audience. Part of my role includes interacting with the community by replying to comments and messages to keep followers engaged. In addition, I research relevant hashtags to help posts reach more people and improve visibility online.</p></div>
-        <div class="card"><h3>E-commerce Support</h3><p>I provide e-commerce support by helping maintain and update online stores. This includes uploading products to platforms like Shopify, making sure product details, images, and prices are correctly added. I also edit and improve product descriptions so they are clear, informative, and appealing to customers. In addition, I assist with simple website updates to keep the store organized, accurate, and up to date for visitors.</p></div>
-        <div class="card"><h3>Content Creation</h3><p>I can also edit contents to help brands stand out online and connect with their audience. This includes designing social media graphics that are visually appealing and on-brand, as well as editing short-form videos for platforms like Reels, TikTok, and Shorts. I also make simple marketing visuals that can be used for promotions, ads, or campaigns, helping businesses communicate their message clearly and creatively.</p></div>
+        <div class="card"><h3>Virtual Assistant</h3><p>I provide virtual assistant support by managing daily tasks and keeping businesses organized. This includes handling social media comments and messages, customer emails, calendar and task management, as well as research and other administrative work to help operations run smoothly.</p></div>
+        <div class="card"><h3>Social Media</h3><p>I manage social media by scheduling content, writing engaging captions, and interacting with followers to keep the community active. I also research relevant hashtags to increase reach and improve online visibility.</p></div>
+        <div class="card"><h3>E-commerce Support</h3><p>I provide e-commerce support by uploading products, editing descriptions, and updating websites to keep online stores organized, accurate, and appealing to customers.</p></div>
+        <div class="card"><h3>Content Creation</h3><p>I create and edit content to help brands stand out online, including on-brand social media graphics, short-form videos for Reels, TikTok, and Shorts, and simple marketing visuals for promotions and campaigns.</p></div>
       </div>
     </div>
   </section>
 
-  <!-- PORTFOLIO – 4 carousels (now functional + modern) -->
+  <!-- PORTFOLIO – 4 carousels (functional + modern) -->
   <section id="portfolio">
     <div class="container">
       <h2 class="section-title">Work Samples</h2>
@@ -517,11 +550,19 @@ I've transformed your portfolio into a modern, Discord-inspired design with a vi
     </div>
   </section>
 
-  <!-- ABOUT (text unchanged) -->
+ 
   <section id="about">
-    <div class="container about">
+    <div class="container">
       <h2 class="section-title">About Me</h2>
-      <p>Im Maricris M. Martinez. Im 20 years old, currently in college in Batangas State University - The National Engineering University - Alangilan Campus. The program Im studying is Information Technology - BSIT, basically its the genral of the technology either it's software or hardware. I’m a creative and adventurous person with a love for both animals and the arts. I share my life with four cats, who keep things lively at home, and I express myself through music, playing both guitar and drums. I enjoy painting, drawing, and exploring any kind of creative outlet. When I’m not immersed in artistic projects, you can find me jogging, seeking new adventures in nature, or traveling to discover new experiences and places.</p>
+      <div class="about-grid">
+        <div class="about-img">
+          <!-- You can replace with actual image; using placeholder for now -->
+          <img src="images/about.jpg" alt="Maricris Martinez">
+        </div>
+        <div class="about-text">
+          <p>Im Maricris M. Martinez. Im 20 years old, currently in college in Batangas State University - The National Engineering University - Alangilan Campus. The program Im studying is Information Technology - BSIT, basically its the genral of the technology either it's software or hardware. I’m a creative and adventurous person with a love for both animals and the arts. I share my life with four cats, who keep things lively at home, and I express myself through music, playing both guitar and drums. I enjoy painting, drawing, and exploring any kind of creative outlet. When I’m not immersed in artistic projects, you can find me jogging, seeking new adventures in nature, or traveling to discover new experiences and places.</p>
+        </div>
+      </div>
     </div>
   </section>
 
@@ -542,10 +583,8 @@ I've transformed your portfolio into a modern, Discord-inspired design with a vi
     <p>© 2026 Maricris Martinez</p>
   </footer>
 
-  <!-- CAROUSEL SCRIPT (modern + smooth) -->
   <script>
     (function() {
-      // Select all carousels
       const carousels = document.querySelectorAll('.carousel');
       
       carousels.forEach(carousel => {
@@ -555,12 +594,10 @@ I've transformed your portfolio into a modern, Discord-inspired design with a vi
         const nextButton = carousel.querySelector('[data-carousel-next]');
         
         let currentIndex = 0;
-        const slideWidth = slides[0].getBoundingClientRect().width; // not needed, we use percentage
         
         // Set initial position
         track.style.transform = 'translateX(0%)';
         
-        // Next button
         nextButton.addEventListener('click', () => {
           if (currentIndex < slides.length - 1) {
             currentIndex++;
@@ -570,7 +607,6 @@ I've transformed your portfolio into a modern, Discord-inspired design with a vi
           track.style.transform = `translateX(-${currentIndex * 100}%)`;
         });
         
-        // Prev button
         prevButton.addEventListener('click', () => {
           if (currentIndex > 0) {
             currentIndex--;
@@ -582,8 +618,7 @@ I've transformed your portfolio into a modern, Discord-inspired design with a vi
       });
     })();
   </script>
-  <!-- (external script.js link kept but not needed) -->
+  
   <script src="script.js"></script>
 </body>
 </html>
-```
