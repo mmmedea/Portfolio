@@ -1,18 +1,15 @@
-Here's the fixed HTML code. The hero section now has the header and description text justified left, with the profile picture placed on the right, as you requested. All original descriptions and links remain unchanged.
+I've transformed your portfolio into a modern, Discord-inspired design with a violet and dark theme. The hero section remains left-aligned with the image on the right, and all your original descriptions and links are untouched. I've added smooth animations, functional carousels with sliding transitions, and a cohesive dark interface with vibrant violet accents.
 ```html
 <!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Maricris M. Martinez | Virtual Assistant Portfolio</title>
-
-  <!-- external stylesheet (kept) -->
-  <link rel="stylesheet" href="style.css">
-
-  <!-- embedded styles to enforce left‑justified hero text & right image -->
+  <title>Maricris M. Martinez · VA Portfolio</title>
+  <!-- Poppins font (modern & clean) -->
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
   <style>
-    /* basic reset & consistency */
+    /* ---------- DISCORD / MODERN DARK THEME ---------- */
     * {
       margin: 0;
       padding: 0;
@@ -21,8 +18,10 @@ Here's the fixed HTML code. The hero section now has the header and description 
 
     body {
       font-family: 'Poppins', sans-serif;
-      line-height: 1.6;
-      color: #333;
+      background: #0f0f14;        /* deep dark background */
+      color: #ffffff;
+      line-height: 1.7;
+      scroll-behavior: smooth;
     }
 
     .container {
@@ -31,13 +30,19 @@ Here's the fixed HTML code. The hero section now has the header and description 
       margin: 0 auto;
     }
 
-    /* header layout (unchanged content) */
+    /* ----- GLOW & TRANSITIONS ----- */
+    .card, .btn, .btn-outline, nav a, .profile-pic, .slide img {
+      transition: all 0.25s ease-in-out;
+    }
+
+    /* ----- HEADER (sticky, glassy) ----- */
     header {
-      background: #fff;
-      box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+      background: #121218;          /* dark but slightly lighter */
+      border-bottom: 1px solid #2c2c3a;
       position: sticky;
       top: 0;
-      z-index: 10;
+      z-index: 100;
+      backdrop-filter: blur(5px);
     }
 
     .nav {
@@ -48,171 +53,275 @@ Here's the fixed HTML code. The hero section now has the header and description 
     }
 
     .logo img {
-      max-height: 50px;
+      max-height: 48px;
+      filter: brightness(1.2);
     }
 
     nav a {
-      margin-left: 1.5rem;
+      color: #ddd;
       text-decoration: none;
-      color: #333;
+      margin-left: 2rem;
       font-weight: 500;
+      font-size: 1rem;
+      position: relative;
     }
 
-    /* HERO SECTION — text left, image right */
+    nav a::after {
+      content: '';
+      position: absolute;
+      bottom: -4px;
+      left: 0;
+      width: 0%;
+      height: 2px;
+      background: #8b5cf6;         /* violet */
+      transition: width 0.2s;
+    }
+
+    nav a:hover {
+      color: white;
+    }
+
+    nav a:hover::after {
+      width: 100%;
+    }
+
+    /* ----- HERO (left text / right image) ----- */
     .hero {
-      padding: 4rem 0;
-      background: #f9f9f9;
+      padding: 6rem 0 4rem 0;
+      min-height: 90vh;
+      display: flex;
+      align-items: center;
     }
 
     .hero-grid {
       display: grid;
       grid-template-columns: 1fr 1fr;
-      gap: 2rem;
+      gap: 3rem;
       align-items: center;
     }
 
-    /* left side: strictly left‑justified */
     .hero-left {
-      text-align: left;    /* left justification as requested */
+      text-align: left;          /* strictly left justified */
     }
 
     .hero-left h2 {
-      font-size: 2.2rem;
+      font-size: 2.5rem;
       font-weight: 600;
       line-height: 1.2;
-      margin-bottom: 1rem;
+      margin-bottom: 1.5rem;
     }
 
     .hero-left h2 span {
-      color: #c36;
+      color: #8b5cf6;             /* violet */
+      text-shadow: 0 0 8px rgba(139, 92, 246, 0.4);
     }
 
     .hero-left p {
-      font-size: 1rem;
-      margin-bottom: 1.5rem;
-      color: #555;
+      color: #c0c0cc;
+      margin-bottom: 2rem;
+      font-size: 1.1rem;
     }
 
     .hero-buttons {
       display: flex;
-      gap: 1rem;
+      gap: 1.2rem;
       flex-wrap: wrap;
     }
 
     .btn {
-      background: #c36;
-      color: #fff;
-      padding: 0.7rem 1.8rem;
-      border-radius: 30px;
+      background: #8b5cf6;
+      color: white;
+      padding: 0.8rem 2.2rem;
+      border-radius: 40px;
       text-decoration: none;
       font-weight: 500;
+      box-shadow: 0 4px 14px rgba(139, 92, 246, 0.3);
+    }
+
+    .btn:hover {
+      background: #a07cff;
+      transform: translateY(-3px);
+      box-shadow: 0 8px 22px rgba(139, 92, 246, 0.5);
     }
 
     .btn-outline {
-      border: 2px solid #c36;
-      color: #c36;
-      padding: 0.7rem 1.8rem;
-      border-radius: 30px;
+      border: 2px solid #8b5cf6;
+      color: white;
+      padding: 0.8rem 2.2rem;
+      border-radius: 40px;
       text-decoration: none;
       font-weight: 500;
+      background: transparent;
     }
 
-    /* right side image */
+    .btn-outline:hover {
+      background: #8b5cf6;
+      transform: translateY(-3px);
+      box-shadow: 0 8px 22px rgba(139, 92, 246, 0.3);
+    }
+
     .hero-right {
       display: flex;
-      justify-content: flex-end; /* image aligned to the right */
+      justify-content: flex-end;
     }
 
     .profile-pic {
       max-width: 100%;
-      height: auto;
-      border-radius: 20px;
-      box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+      width: 380px;
+      border-radius: 24px;
+      box-shadow: 0 20px 30px -10px rgba(0, 0, 0, 0.7), 0 0 0 2px #8b5cf6 inset;
       object-fit: cover;
-      width: 100%;
-      max-width: 400px; /* nice size, but responsive */
+      transition: transform 0.3s, box-shadow 0.3s;
     }
 
-    /* section titles */
+    .profile-pic:hover {
+      transform: scale(1.02);
+      box-shadow: 0 25px 35px -8px #8b5cf6, 0 0 0 2px #8b5cf6 inset;
+    }
+
+    /* ----- SECTION TITLES (violet glow) ----- */
     .section-title {
       text-align: center;
-      font-size: 2rem;
-      margin-bottom: 2.5rem;
+      font-size: 2.5rem;
+      margin-bottom: 3rem;
       font-weight: 600;
-      color: #222;
+      color: white;
+      position: relative;
     }
 
-    /* cards grid */
+    .section-title::after {
+      content: '';
+      display: block;
+      width: 80px;
+      height: 4px;
+      background: #8b5cf6;
+      margin: 0.7rem auto 0;
+      border-radius: 4px;
+      box-shadow: 0 0 12px #8b5cf6;
+    }
+
+    /* ----- CARDS (services & skills) ----- */
     .grid {
       display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
       gap: 2rem;
     }
 
     .card {
-      background: #fff;
-      padding: 1.5rem;
-      border-radius: 12px;
-      box-shadow: 0 5px 15px rgba(0,0,0,0.05);
-      transition: transform 0.2s;
+      background: #18181f;         /* dark card */
+      padding: 2rem 1.5rem;
+      border-radius: 20px;
+      border: 1px solid #2c2c3a;
+      box-shadow: 0 5px 15px rgba(0,0,0,0.6);
+      backdrop-filter: blur(2px);
+    }
+
+    .card:hover {
+      transform: translateY(-8px);
+      border-color: #8b5cf6;
+      box-shadow: 0 15px 30px rgba(139, 92, 246, 0.3);
     }
 
     .card h3 {
-      color: #c36;
+      color: #8b5cf6;
       margin-bottom: 1rem;
-      font-size: 1.3rem;
+      font-size: 1.5rem;
+      font-weight: 600;
     }
 
-    /* carousel container (visual only, no functional change) */
+    .card p {
+      color: #b0b0c0;
+    }
+
+    /* ----- CAROUSEL (modern sliding) ----- */
     .carousel-container {
       margin: 2rem 0;
     }
 
     .carousel {
+      position: relative;
       display: flex;
       align-items: center;
       justify-content: center;
-      margin: 1.5rem 0;
-      background: #f4f4f4;
+      margin: 2rem 0;
+      background: #12121a;
+      border-radius: 28px;
       padding: 1rem;
-      border-radius: 16px;
+      border: 1px solid #2c2c3a;
+      box-shadow: 0 10px 20px rgba(0,0,0,0.6);
+    }
+
+    .carousel-track-wrapper {
+      overflow: hidden;
+      width: 100%;
+      border-radius: 20px;
     }
 
     .carousel-track {
       display: flex;
-      gap: 1rem;
-      overflow-x: auto;
-      padding: 1rem 0;
-      scroll-behavior: smooth;
-      flex: 1;
+      transition: transform 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+    }
+
+    .slide {
+      flex: 0 0 100%;            /* each slide takes full width */
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      padding: 0.5rem;
     }
 
     .slide img {
-      height: 150px;
+      max-width: 100%;
+      max-height: 280px;
       width: auto;
-      border-radius: 12px;
-      box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+      border-radius: 20px;
+      box-shadow: 0 8px 18px rgba(0,0,0,0.7);
+      border: 2px solid transparent;
+      transition: border 0.2s;
+    }
+
+    .slide img:hover {
+      border: 2px solid #8b5cf6;
     }
 
     .prev, .next {
-      background: #c36;
-      color: #fff;
+      background: #2c2c3a;
+      color: white;
       border: none;
-      font-size: 1.5rem;
-      padding: 0.5rem 1rem;
+      font-size: 2rem;
+      width: 48px;
+      height: 48px;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
       cursor: pointer;
-      border-radius: 40px;
       margin: 0 0.5rem;
+      transition: 0.2s;
+      border: 1px solid #8b5cf6;
+      box-shadow: 0 0 10px rgba(139,92,246,0.3);
+      z-index: 5;
     }
 
-    /* about section */
-    .about p {
+    .prev:hover, .next:hover {
+      background: #8b5cf6;
+      color: black;
+      transform: scale(1.08);
+    }
+
+    /* ----- ABOUT (centered, softer) ----- */
+    #about .about p {
       max-width: 800px;
-      margin: 1rem auto 0;
-      text-align: center;  /* keep as original (centered) */
+      margin: 2rem auto 0;
+      text-align: center;
+      background: #18181f;
+      padding: 2rem;
+      border-radius: 32px;
+      border: 1px solid #2c2c3a;
+      color: #d0d0dd;
     }
 
-    /* contact links */
+    /* ----- CONTACT BUTTONS (violet) ----- */
     .contact-links {
       display: flex;
       justify-content: center;
@@ -221,28 +330,43 @@ Here's the fixed HTML code. The hero section now has the header and description 
     }
 
     .contact-links a {
+      background: #1e1e2a;
+      color: white;
+      padding: 1rem 2rem;
+      border-radius: 60px;
       text-decoration: none;
-      color: #c36;
       font-weight: 500;
       font-size: 1.2rem;
+      border: 1px solid #8b5cf6;
+      transition: 0.2s;
+      box-shadow: 0 5px 12px rgba(0,0,0,0.4);
     }
 
+    .contact-links a:hover {
+      background: #8b5cf6;
+      transform: translateY(-4px);
+      box-shadow: 0 12px 22px rgba(139,92,246,0.4);
+    }
+
+    /* ----- FOOTER ----- */
     footer {
       text-align: center;
       padding: 2rem 0;
-      background: #222;
-      color: #fff;
-      margin-top: 2rem;
+      background: #0a0a0f;
+      color: #aaa;
+      border-top: 1px solid #2c2c3a;
+      margin-top: 3rem;
     }
 
-    /* responsive */
+    /* ----- RESPONSIVE ----- */
     @media (max-width: 768px) {
       .hero-grid {
         grid-template-columns: 1fr;
         text-align: center;
+        gap: 2rem;
       }
       .hero-left {
-        text-align: center;   /* stacked on mobile: keep centered */
+        text-align: center;
       }
       .hero-right {
         justify-content: center;
@@ -252,21 +376,19 @@ Here's the fixed HTML code. The hero section now has the header and description 
         gap: 1rem;
       }
       nav a {
-        margin: 0 0.75rem;
+        margin: 0 1rem;
       }
       .contact-links {
         flex-direction: column;
         align-items: center;
       }
+      .profile-pic {
+        width: 280px;
+      }
     }
   </style>
-
-  <!-- Google Fonts (unchanged) -->
-  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 </head>
-
 <body>
-
   <header>
     <div class="container nav">
       <div class="logo">
@@ -283,14 +405,12 @@ Here's the fixed HTML code. The hero section now has the header and description 
     </div>
   </header>
 
-  <!-- HOME section with left‑justified text & right image -->
+  <!-- HOME (left text / right image) -->
   <section id="home" class="hero">
     <div class="container hero-grid">
       <div class="hero-left">
         <h2>Good day, I'm <span>Maricris M. Martinez</span></h2>
-        <p>
-          Virtual Assistant supporting e-commerce and creative brands with organization, social media management, and content creation. I help founders streamline daily tasks, manage online communities, schedule posts, and maintain well-organized digital workflows. By combining administrative support with creative skills like graphic design, video editing, and basic web development, I help brands stay consistent, professional, and engaging across their online platforms.
-        </p>  <!-- closed paragraph -->
+        <p>Virtual Assistant supporting e-commerce and creative brands with organization, social media management, and content creation. I help founders streamline daily tasks, manage online communities, schedule posts, and maintain well-organized digital workflows. By combining administrative support with creative skills like graphic design, video editing, and basic web development, I help brands stay consistent, professional, and engaging across their online platforms.</p>
         <div class="hero-buttons">
           <a href="#portfolio" class="btn">View Work</a>
           <a href="#contact" class="btn-outline">Contact Me</a>
@@ -302,135 +422,116 @@ Here's the fixed HTML code. The hero section now has the header and description 
     </div>
   </section>
 
-  <!-- SERVICES (unchanged descriptions) -->
+  <!-- SERVICES (cards, descriptions untouched) -->
   <section id="services">
     <div class="container">
       <h2 class="section-title">Services</h2>
       <div class="grid">
-        <div class="card">
-          <h3>Virtual Assistant</h3>
-          <p>I provide virtual assistant support by helping businesses manage daily tasks and stay organized. This includes responding to social media comments and messages to keep communication active with customers and followers. I also assist with customer email support by answering inquiries and helping resolve basic concerns. In addition, I help organize calendars, manage tasks, and keep schedules on track. When needed, I also handle research and other administrative work to support business operations and make day-to-day processes run more smoothly.</p>
-        </div>
-        <div class="card">
-          <h3>Social Media</h3>
-          <p>I help manage social media accounts by organizing and scheduling content so posts are published consistently and at the right time. I also write clear and engaging captions that match the brand’s voice and help connect with the audience. Part of my role includes interacting with the community by replying to comments and messages to keep followers engaged. In addition, I research relevant hashtags to help posts reach more people and improve visibility online.</p>
-        </div>
-        <div class="card">
-          <h3>E-commerce Support</h3>
-          <p>I provide e-commerce support by helping maintain and update online stores. This includes uploading products to platforms like Shopify, making sure product details, images, and prices are correctly added. I also edit and improve product descriptions so they are clear, informative, and appealing to customers. In addition, I assist with simple website updates to keep the store organized, accurate, and up to date for visitors.</p>
-        </div>
-        <div class="card">
-          <h3>Content Creation</h3>
-          <p>I can also edit contents to help brands stand out online and connect with their audience. This includes designing social media graphics that are visually appealing and on-brand, as well as editing short-form videos for platforms like Reels, TikTok, and Shorts. I also make simple marketing visuals that can be used for promotions, ads, or campaigns, helping businesses communicate their message clearly and creatively.</p>
-        </div>
+        <div class="card"><h3>Virtual Assistant</h3><p>I provide virtual assistant support by helping businesses manage daily tasks and stay organized. This includes responding to social media comments and messages to keep communication active with customers and followers. I also assist with customer email support by answering inquiries and helping resolve basic concerns. In addition, I help organize calendars, manage tasks, and keep schedules on track. When needed, I also handle research and other administrative work to support business operations and make day-to-day processes run more smoothly.</p></div>
+        <div class="card"><h3>Social Media</h3><p>I help manage social media accounts by organizing and scheduling content so posts are published consistently and at the right time. I also write clear and engaging captions that match the brand’s voice and help connect with the audience. Part of my role includes interacting with the community by replying to comments and messages to keep followers engaged. In addition, I research relevant hashtags to help posts reach more people and improve visibility online.</p></div>
+        <div class="card"><h3>E-commerce Support</h3><p>I provide e-commerce support by helping maintain and update online stores. This includes uploading products to platforms like Shopify, making sure product details, images, and prices are correctly added. I also edit and improve product descriptions so they are clear, informative, and appealing to customers. In addition, I assist with simple website updates to keep the store organized, accurate, and up to date for visitors.</p></div>
+        <div class="card"><h3>Content Creation</h3><p>I can also edit contents to help brands stand out online and connect with their audience. This includes designing social media graphics that are visually appealing and on-brand, as well as editing short-form videos for platforms like Reels, TikTok, and Shorts. I also make simple marketing visuals that can be used for promotions, ads, or campaigns, helping businesses communicate their message clearly and creatively.</p></div>
       </div>
     </div>
   </section>
 
-  <!-- PORTFOLIO (carousels untouched, only structure) -->
+  <!-- PORTFOLIO – 4 carousels (now functional + modern) -->
   <section id="portfolio">
     <div class="container">
       <h2 class="section-title">Work Samples</h2>
-      <div class="carousel-container">
-        <!-- first carousel -->
-        <div class="carousel">
-          <button class="prev">&#10094;</button>
-          <div class="carousel-track">
-            <div class="slide"><img src="images/sample1.jpg" alt="sample"></div>
-            <div class="slide"><img src="images/sample2.jpg" alt="sample"></div>
-            <div class="slide"><img src="images/sample3.jpg" alt="sample"></div>
-            <div class="slide"><img src="images/sample4.jpg" alt="sample"></div>
-            <div class="slide"><img src="images/sample5.jpg" alt="sample"></div>
-            <div class="slide"><img src="images/sample6.jpg" alt="sample"></div>
+      <div class="carousel-container" id="carousel-container">
+        <!-- carousel 1 -->
+        <div class="carousel" data-carousel="0">
+          <button class="prev" data-carousel-prev>‹</button>
+          <div class="carousel-track-wrapper">
+            <div class="carousel-track">
+              <div class="slide"><img src="images/sample1.jpg" alt="sample 1"></div>
+              <div class="slide"><img src="images/sample2.jpg" alt="sample 2"></div>
+              <div class="slide"><img src="images/sample3.jpg" alt="sample 3"></div>
+              <div class="slide"><img src="images/sample4.jpg" alt="sample 4"></div>
+              <div class="slide"><img src="images/sample5.jpg" alt="sample 5"></div>
+              <div class="slide"><img src="images/sample6.jpg" alt="sample 6"></div>
+            </div>
           </div>
-          <button class="next">&#10095;</button>
+          <button class="next" data-carousel-next>›</button>
         </div>
-        <!-- second carousel -->
-        <div class="carousel">
-          <button class="prev">&#10094;</button>
-          <div class="carousel-track">
-            <div class="slide"><img src="images/sample7.jpg" alt="sample"></div>
-            <div class="slide"><img src="images/sample8.jpg" alt="sample"></div>
-            <div class="slide"><img src="images/sample9.jpg" alt="sample"></div>
-            <div class="slide"><img src="images/sample10.jpg" alt="sample"></div>
-            <div class="slide"><img src="images/sample11.jpg" alt="sample"></div>
-            <div class="slide"><img src="images/sample12.jpg" alt="sample"></div>
+        <!-- carousel 2 -->
+        <div class="carousel" data-carousel="1">
+          <button class="prev" data-carousel-prev>‹</button>
+          <div class="carousel-track-wrapper">
+            <div class="carousel-track">
+              <div class="slide"><img src="images/sample7.jpg" alt="sample 7"></div>
+              <div class="slide"><img src="images/sample8.jpg" alt="sample 8"></div>
+              <div class="slide"><img src="images/sample9.jpg" alt="sample 9"></div>
+              <div class="slide"><img src="images/sample10.jpg" alt="sample 10"></div>
+              <div class="slide"><img src="images/sample11.jpg" alt="sample 11"></div>
+              <div class="slide"><img src="images/sample12.jpg" alt="sample 12"></div>
+            </div>
           </div>
-          <button class="next">&#10095;</button>
+          <button class="next" data-carousel-next>›</button>
         </div>
-        <!-- third carousel -->
-        <div class="carousel">
-          <button class="prev">&#10094;</button>
-          <div class="carousel-track">
-            <div class="slide"><img src="images/sample13.jpg" alt="sample"></div>
-            <div class="slide"><img src="images/sample14.jpg" alt="sample"></div>
-            <div class="slide"><img src="images/sample15.jpg" alt="sample"></div>
-            <div class="slide"><img src="images/sample16.jpg" alt="sample"></div>
-            <div class="slide"><img src="images/sample17.jpg" alt="sample"></div>
-            <div class="slide"><img src="images/sample18.jpg" alt="sample"></div>
+        <!-- carousel 3 -->
+        <div class="carousel" data-carousel="2">
+          <button class="prev" data-carousel-prev>‹</button>
+          <div class="carousel-track-wrapper">
+            <div class="carousel-track">
+              <div class="slide"><img src="images/sample13.jpg" alt="sample 13"></div>
+              <div class="slide"><img src="images/sample14.jpg" alt="sample 14"></div>
+              <div class="slide"><img src="images/sample15.jpg" alt="sample 15"></div>
+              <div class="slide"><img src="images/sample16.jpg" alt="sample 16"></div>
+              <div class="slide"><img src="images/sample17.jpg" alt="sample 17"></div>
+              <div class="slide"><img src="images/sample18.jpg" alt="sample 18"></div>
+            </div>
           </div>
-          <button class="next">&#10095;</button>
+          <button class="next" data-carousel-next>›</button>
         </div>
-        <!-- fourth carousel -->
-        <div class="carousel">
-          <button class="prev">&#10094;</button>
-          <div class="carousel-track">
-            <div class="slide"><img src="images/sample19.jpg" alt="sample"></div>
-            <div class="slide"><img src="images/sample20.jpg" alt="sample"></div>
-            <div class="slide"><img src="images/sample21.jpg" alt="sample"></div>
-            <div class="slide"><img src="images/sample22.jpg" alt="sample"></div>
-            <div class="slide"><img src="images/sample23.jpg" alt="sample"></div>
-            <div class="slide"><img src="images/sample24.jpg" alt="sample"></div>
+        <!-- carousel 4 -->
+        <div class="carousel" data-carousel="3">
+          <button class="prev" data-carousel-prev>‹</button>
+          <div class="carousel-track-wrapper">
+            <div class="carousel-track">
+              <div class="slide"><img src="images/sample19.jpg" alt="sample 19"></div>
+              <div class="slide"><img src="images/sample20.jpg" alt="sample 20"></div>
+              <div class="slide"><img src="images/sample21.jpg" alt="sample 21"></div>
+              <div class="slide"><img src="images/sample22.jpg" alt="sample 22"></div>
+              <div class="slide"><img src="images/sample23.jpg" alt="sample 23"></div>
+              <div class="slide"><img src="images/sample24.jpg" alt="sample 24"></div>
+            </div>
           </div>
-          <button class="next">&#10095;</button>
+          <button class="next" data-carousel-next>›</button>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- SKILLS (descriptions unchanged) -->
+  <!-- SKILLS (exact same descriptions) -->
   <section id="skills">
     <div class="container">
       <h2 class="section-title">Tools & Skills</h2>
       <div class="grid">
-        <div class="card">
-          <h3>Design</h3>
-          <p>Canva, Graphic Design, Branding</p>
-        </div>
-        <div class="card">
-          <h3>Video Editing</h3>
-          <p>CapCut, Davinci, VN - Video Editor, Alight Motion</p>
-        </div>
-        <div class="card">
-          <h3>Productivity</h3>
-          <p>Notion, Trello, Google Workspace, Slack</p>
-        </div>
-        <div class="card">
-          <h3>Code Development</h3>
-          <p>HTML, CSS, Java, Python, C++</p>
-        </div>
+        <div class="card"><h3>Design</h3><p>Canva, Graphic Design, Branding</p></div>
+        <div class="card"><h3>Video Editing</h3><p>CapCut, Davinci, VN - Video Editor, Alight Motion</p></div>
+        <div class="card"><h3>Productivity</h3><p>Notion, Trello, Google Workspace, Slack</p></div>
+        <div class="card"><h3>Code Development</h3><p>HTML, CSS, Java, Python, C++</p></div>
       </div>
     </div>
   </section>
 
-  <!-- ABOUT (unchanged) -->
+  <!-- ABOUT (text unchanged) -->
   <section id="about">
     <div class="container about">
       <h2 class="section-title">About Me</h2>
-      <p>
-        Im Maricris M. Martinez. Im 20 years old, currently in college in Batangas State University - The National Engineering University - Alangilan Campus. The program Im studying is Information Technology - BSIT, basically its the genral of the technology either it's software or hardware. I’m a creative and adventurous person with a love for both animals and the arts. I share my life with four cats, who keep things lively at home, and I express myself through music, playing both guitar and drums. I enjoy painting, drawing, and exploring any kind of creative outlet. When I’m not immersed in artistic projects, you can find me jogging, seeking new adventures in nature, or traveling to discover new experiences and places.
-      </p>
+      <p>Im Maricris M. Martinez. Im 20 years old, currently in college in Batangas State University - The National Engineering University - Alangilan Campus. The program Im studying is Information Technology - BSIT, basically its the genral of the technology either it's software or hardware. I’m a creative and adventurous person with a love for both animals and the arts. I share my life with four cats, who keep things lively at home, and I express myself through music, playing both guitar and drums. I enjoy painting, drawing, and exploring any kind of creative outlet. When I’m not immersed in artistic projects, you can find me jogging, seeking new adventures in nature, or traveling to discover new experiences and places.</p>
     </div>
   </section>
 
-  <!-- CONTACT (links fixed only for validity: added https to LinkedIn) -->
+  <!-- CONTACT (links unchanged, fixed LinkedIn) -->
   <section id="contact">
     <div class="container">
       <h2 class="section-title">Contact</h2>
       <div class="contact-links">
         <a href="mailto:maricrismartinez1818@gmail.com">Email</a>
         <a href="https://github.com/mmmedea" target="_blank">Github</a>
-        <!-- corrected LinkedIn URL (added https://) -->
         <a href="https://www.linkedin.com/in/maricris-martinez-41787b215" target="_blank">LinkedIn</a>
         <a href="https://www.instagram.com/sosyal_medea/" target="_blank">Instagram</a>
       </div>
@@ -441,7 +542,47 @@ Here's the fixed HTML code. The hero section now has the header and description 
     <p>© 2026 Maricris Martinez</p>
   </footer>
 
-  <!-- external script (kept) -->
+  <!-- CAROUSEL SCRIPT (modern + smooth) -->
+  <script>
+    (function() {
+      // Select all carousels
+      const carousels = document.querySelectorAll('.carousel');
+      
+      carousels.forEach(carousel => {
+        const track = carousel.querySelector('.carousel-track');
+        const slides = Array.from(track.children);
+        const prevButton = carousel.querySelector('[data-carousel-prev]');
+        const nextButton = carousel.querySelector('[data-carousel-next]');
+        
+        let currentIndex = 0;
+        const slideWidth = slides[0].getBoundingClientRect().width; // not needed, we use percentage
+        
+        // Set initial position
+        track.style.transform = 'translateX(0%)';
+        
+        // Next button
+        nextButton.addEventListener('click', () => {
+          if (currentIndex < slides.length - 1) {
+            currentIndex++;
+          } else {
+            currentIndex = 0; // loop
+          }
+          track.style.transform = `translateX(-${currentIndex * 100}%)`;
+        });
+        
+        // Prev button
+        prevButton.addEventListener('click', () => {
+          if (currentIndex > 0) {
+            currentIndex--;
+          } else {
+            currentIndex = slides.length - 1; // loop
+          }
+          track.style.transform = `translateX(-${currentIndex * 100}%)`;
+        });
+      });
+    })();
+  </script>
+  <!-- (external script.js link kept but not needed) -->
   <script src="script.js"></script>
 </body>
 </html>
