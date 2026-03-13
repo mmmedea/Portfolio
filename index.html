@@ -284,7 +284,7 @@
       padding: 0.5rem;
     }
 
-    /* media inside slides (image, video, link) */
+    /* media inside slides */
     .slide-media {
       max-width: 100%;
       max-height: 280px;
@@ -299,45 +299,11 @@
       border: 2px solid #8b5cf6;
     }
 
-    /* video element specific */
     .slide video.slide-media {
       max-height: 280px;
       width: 100%;
       object-fit: contain;
       background: #000;
-    }
-
-    /* file link styling for PDF/PSD (kept for compatibility, though no longer used) */
-    .file-link {
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      justify-content: center;
-      background: #2c2c3a;
-      border-radius: 20px;
-      padding: 1.5rem;
-      text-align: center;
-      text-decoration: none;
-      color: white;
-      border: 2px solid transparent;
-      transition: 0.2s;
-      min-width: 200px;
-    }
-
-    .file-link:hover {
-      border-color: #8b5cf6;
-      transform: scale(1.02);
-      background: #3a3a4a;
-    }
-
-    .file-link span {
-      font-size: 3rem;
-      margin-bottom: 0.5rem;
-    }
-
-    .file-link small {
-      color: #b0b0c0;
-      font-size: 0.9rem;
     }
 
     .prev, .next {
@@ -695,7 +661,6 @@
 
   <script>
     (function() {
-      // Function to convert file extension to proper media element
       function createMediaElement(src, alt) {
         const ext = src.split('.').pop().toLowerCase();
         
@@ -708,16 +673,7 @@
           video.style.width = '100%';
           video.style.objectFit = 'contain';
           return video;
-        } else if (ext === 'pdf' || ext === 'psd') {
-          // Fallback (should not be used now, but kept)
-          const link = document.createElement('a');
-          link.href = src;
-          link.target = '_blank';
-          link.className = 'file-link';
-          link.innerHTML = `<span>📁</span><strong>${src.split('/').pop()}</strong><small>Click to view/download</small>`;
-          return link;
         } else {
-          // Assume image (png, jpg, etc.)
           const img = document.createElement('img');
           img.src = src;
           img.alt = alt;
@@ -728,18 +684,16 @@
         }
       }
 
-      // Replace all slide images with appropriate media
       document.querySelectorAll('.slide').forEach(slide => {
         const img = slide.querySelector('img.slide-media');
         if (!img) return;
         const src = img.getAttribute('src');
         const alt = img.getAttribute('alt') || '';
         const newMedia = createMediaElement(src, alt);
-        slide.innerHTML = ''; // clear original img
+        slide.innerHTML = '';
         slide.appendChild(newMedia);
       });
 
-      // Carousel functionality (infinite loop)
       const carousels = document.querySelectorAll('.carousel');
       carousels.forEach(carousel => {
         const track = carousel.querySelector('.carousel-track');
@@ -751,20 +705,12 @@
         track.style.transform = 'translateX(0%)';
         
         nextButton.addEventListener('click', () => {
-          if (currentIndex < slides.length - 1) {
-            currentIndex++;
-          } else {
-            currentIndex = 0;
-          }
+          currentIndex = (currentIndex + 1) % slides.length;
           track.style.transform = `translateX(-${currentIndex * 100}%)`;
         });
         
         prevButton.addEventListener('click', () => {
-          if (currentIndex > 0) {
-            currentIndex--;
-          } else {
-            currentIndex = slides.length - 1;
-          }
+          currentIndex = (currentIndex - 1 + slides.length) % slides.length;
           track.style.transform = `translateX(-${currentIndex * 100}%)`;
         });
       });
