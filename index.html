@@ -443,7 +443,6 @@
     }
 
     /* ===== RESPONSIVE BREAKPOINTS ===== */
-    /* Tablet (768px - 1024px) */
     @media (max-width: 1024px) and (min-width: 769px) {
       .hero-grid {
         gap: 2rem;
@@ -464,7 +463,6 @@
       }
     }
 
-    /* Mobile (up to 768px) */
     @media (max-width: 768px) {
       .hero-grid {
         grid-template-columns: 1fr;
@@ -509,7 +507,6 @@
       }
     }
 
-    /* Small mobile (up to 480px) */
     @media (max-width: 480px) {
       .profile-pic {
         width: 160px;
@@ -582,12 +579,12 @@
     </div>
   </section>
 
-  <!-- PORTFOLIO – carousels (all samples now .png) -->
+  <!-- PORTFOLIO – carousels with fixed formats for specified samples -->
   <section id="portfolio">
     <div class="container">
       <h2 class="section-title">Work Samples</h2>
       <div class="carousel-container" id="carousel-container">
-        <!-- Carousel 1 -->
+        <!-- Carousel 1 (samples 1-6) -->
         <div class="carousel" data-carousel="0">
           <button class="prev" data-carousel-prev>‹</button>
           <div class="carousel-track-wrapper">
@@ -595,21 +592,21 @@
               <div class="slide"><img class="slide-media" src="images/sample1.png" alt="sample 1"></div>
               <div class="slide"><img class="slide-media" src="images/sample2.png" alt="sample 2"></div>
               <div class="slide"><img class="slide-media" src="images/sample3.png" alt="sample 3"></div>
-              <div class="slide"><img class="slide-media" src="images/sample4.png" alt="sample 4"></div>
-              <div class="slide"><img class="slide-media" src="images/sample5.png" alt="sample 5"></div>
+              <div class="slide"><img class="slide-media" src="images/sample4.pdf" alt="sample 4"></div>  <!-- fixed .pdf -->
+              <div class="slide"><img class="slide-media" src="images/sample5.pdf" alt="sample 5"></div>  <!-- fixed .pdf -->
               <div class="slide"><img class="slide-media" src="images/sample6.png" alt="sample 6"></div>
             </div>
           </div>
           <button class="next" data-carousel-next>›</button>
         </div>
-        <!-- Carousel 2 -->
+        <!-- Carousel 2 (samples 7-12) -->
         <div class="carousel" data-carousel="1">
           <button class="prev" data-carousel-prev>‹</button>
           <div class="carousel-track-wrapper">
             <div class="carousel-track">
-              <div class="slide"><img class="slide-media" src="images/sample7.png" alt="sample 7"></div>
+              <div class="slide"><img class="slide-media" src="images/sample7.pdf" alt="sample 7"></div>  <!-- fixed .pdf -->
               <div class="slide"><img class="slide-media" src="images/sample8.png" alt="sample 8"></div>
-              <div class="slide"><img class="slide-media" src="images/sample9.png" alt="sample 9"></div>
+              <div class="slide"><img class="slide-media" src="images/sample9.pdf" alt="sample 9"></div>  <!-- fixed .pdf -->
               <div class="slide"><img class="slide-media" src="images/sample10.png" alt="sample 10"></div>
               <div class="slide"><img class="slide-media" src="images/sample11.png" alt="sample 11"></div>
               <div class="slide"><img class="slide-media" src="images/sample12.png" alt="sample 12"></div>
@@ -617,14 +614,14 @@
           </div>
           <button class="next" data-carousel-next>›</button>
         </div>
-        <!-- Carousel 3 -->
+        <!-- Carousel 3 (samples 13-18) -->
         <div class="carousel" data-carousel="2">
           <button class="prev" data-carousel-prev>‹</button>
           <div class="carousel-track-wrapper">
             <div class="carousel-track">
               <div class="slide"><img class="slide-media" src="images/sample13.png" alt="sample 13"></div>
               <div class="slide"><img class="slide-media" src="images/sample14.png" alt="sample 14"></div>
-              <div class="slide"><img class="slide-media" src="images/sample15.png" alt="sample 15"></div>
+              <div class="slide"><img class="slide-media" src="images/sample15.pdf" alt="sample 15"></div>  <!-- fixed .pdf -->
               <div class="slide"><img class="slide-media" src="images/sample16.png" alt="sample 16"></div>
               <div class="slide"><img class="slide-media" src="images/sample17.png" alt="sample 17"></div>
               <div class="slide"><img class="slide-media" src="images/sample18.png" alt="sample 18"></div>
@@ -632,17 +629,17 @@
           </div>
           <button class="next" data-carousel-next>›</button>
         </div>
-        <!-- Carousel 4 -->
+        <!-- Carousel 4 (samples 19-24) -->
         <div class="carousel" data-carousel="3">
           <button class="prev" data-carousel-prev>‹</button>
           <div class="carousel-track-wrapper">
             <div class="carousel-track">
               <div class="slide"><img class="slide-media" src="images/sample19.png" alt="sample 19"></div>
-              <div class="slide"><img class="slide-media" src="images/sample20.png" alt="sample 20"></div>
-              <div class="slide"><img class="slide-media" src="images/sample21.png" alt="sample 21"></div>
-              <div class="slide"><img class="slide-media" src="images/sample22.png" alt="sample 22"></div>
-              <div class="slide"><img class="slide-media" src="images/sample23.png" alt="sample 23"></div>
-              <div class="slide"><img class="slide-media" src="images/sample24.png" alt="sample 24"></div>
+              <div class="slide"><img class="slide-media" src="images/sample20.psd" alt="sample 20"></div>  <!-- fixed .psd -->
+              <div class="slide"><img class="slide-media" src="images/sample21.psd" alt="sample 21"></div>  <!-- fixed .psd -->
+              <div class="slide"><img class="slide-media" src="images/sample22.mp4" alt="sample 22"></div>  <!-- fixed .mp4 -->
+              <div class="slide"><img class="slide-media" src="images/sample23.mp4" alt="sample 23"></div>  <!-- fixed .mp4 -->
+              <div class="slide"><img class="slide-media" src="images/sample24.mp4" alt="sample 24"></div>  <!-- fixed .mp4 -->
             </div>
           </div>
           <button class="next" data-carousel-next>›</button>
@@ -701,8 +698,6 @@
       // Function to convert file extension to proper media element
       function createMediaElement(src, alt) {
         const ext = src.split('.').pop().toLowerCase();
-        const container = document.createElement('div');
-        container.className = 'slide-media';
         
         if (ext === 'mp4') {
           const video = document.createElement('video');
