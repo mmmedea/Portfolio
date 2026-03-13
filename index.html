@@ -50,8 +50,27 @@
       padding: 1rem 0;
     }
 
+    /* ----- CIRCULAR LOGO + HOME LINK ----- */
+    .logo a {
+      display: inline-block;
+      width: 48px;
+      height: 48px;
+      border-radius: 50%;
+      overflow: hidden;
+      border: 2px solid #8b5cf6;
+      box-shadow: 0 0 10px rgba(139,92,246,0.3);
+      transition: transform 0.2s;
+    }
+
+    .logo a:hover {
+      transform: scale(1.05);
+      box-shadow: 0 0 15px #8b5cf6;
+    }
+
     .logo img {
-      max-height: 48px;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
       filter: brightness(1.2);
     }
 
@@ -83,7 +102,7 @@
       width: 100%;
     }
 
-    /* ----- HERO (left text / right image) ----- */
+    /* ----- HERO (image left / text right) ----- */
     .hero {
       padding: 6rem 0 4rem 0;
       min-height: 90vh;
@@ -98,6 +117,13 @@
       align-items: center;
     }
 
+    /* left column now contains the image */
+    .hero-right {
+      display: flex;
+      justify-content: flex-start;  /* image aligned left within its column */
+    }
+
+    /* right column now contains the text */
     .hero-left {
       text-align: left;
     }
@@ -158,19 +184,14 @@
       box-shadow: 0 8px 22px rgba(139, 92, 246, 0.3);
     }
 
-    .hero-right {
-      display: flex;
-      justify-content: flex-end;
-    }
-
     /* ---------- CIRCULAR PROFILE PICTURE (HERO) ---------- */
     .profile-pic {
       max-width: 100%;
-      width: 280px;               /* balanced medium size */
-      height: 280px;              /* force square aspect for perfect circle */
-      border-radius: 50%;         /* makes it circular */
-      object-fit: cover;          /* ensures image covers area without distortion */
-      box-shadow: 0 20px 30px -10px rgba(0, 0, 0, 0.7), 0 0 0 3px #8b5cf6; /* violet ring */
+      width: 280px;
+      height: 280px;
+      border-radius: 50%;
+      object-fit: cover;
+      box-shadow: 0 20px 30px -10px rgba(0, 0, 0, 0.7), 0 0 0 3px #8b5cf6;
       transition: all 0.25s ease-in-out;
     }
 
@@ -233,7 +254,7 @@
       color: #b0b0c0;
     }
 
-    /* ----- CAROUSEL (modern sliding) ----- */
+    /* ----- CAROUSEL (modern sliding, infinite loop) ----- */
     .carousel-container {
       margin: 2rem 0;
     }
@@ -326,9 +347,9 @@
     /* ---------- CIRCULAR ABOUT IMAGE ---------- */
     .about-img img {
       max-width: 100%;
-      width: 280px;               /* same size as hero for consistency */
-      height: 280px;              /* square to enable perfect circle */
-      border-radius: 50%;         /* circular */
+      width: 280px;
+      height: 280px;
+      border-radius: 50%;
       object-fit: cover;
       box-shadow: 0 20px 30px -10px rgba(0, 0, 0, 0.7), 0 0 0 3px #8b5cf6;
       transition: all 0.25s ease-in-out;
@@ -396,6 +417,7 @@
         text-align: center;
         gap: 2rem;
       }
+      /* on mobile, both columns center */
       .hero-left {
         text-align: center;
       }
@@ -414,7 +436,7 @@
         align-items: center;
       }
       .profile-pic {
-        width: 220px;   /* smaller on mobile but still circular */
+        width: 220px;
         height: 220px;
       }
       .about-grid {
@@ -436,7 +458,9 @@
   <header>
     <div class="container nav">
       <div class="logo">
-        <img src="images/logo.png" alt="MM Logo">
+        <a href="#home">
+          <img src="images/logo.png" alt="MM Logo">
+        </a>
       </div>
       <nav>
         <a href="#home">Home</a>
@@ -449,9 +473,14 @@
     </div>
   </header>
 
-  <!-- HOME (left text / right image) -->
+  <!-- HOME (image left / text right) -->
   <section id="home" class="hero">
     <div class="container hero-grid">
+      <!-- left column: profile image -->
+      <div class="hero-right">
+        <img src="images/profile.png" class="profile-pic" alt="Maricris Martinez">
+      </div>
+      <!-- right column: text content -->
       <div class="hero-left">
         <h2>Good day, I'm <span>Maricris M. Martinez</span></h2>
         <p>Virtual Assistant supporting e-commerce and creative brands with organization, social media management, and content creation. I help founders streamline daily tasks, manage online communities, schedule posts, and maintain well-organized digital workflows. By combining administrative support with creative skills like graphic design, video editing, and basic web development, I help brands stay consistent, professional, and engaging across their online platforms. I certainly have more rooms for improvements.</p>
@@ -459,9 +488,6 @@
           <a href="#portfolio" class="btn">View Work</a>
           <a href="#contact" class="btn-outline">Contact Me</a>
         </div>
-      </div>
-      <div class="hero-right">
-        <img src="images/profile.png" class="profile-pic" alt="Maricris Martinez">
       </div>
     </div>
   </section>
@@ -479,7 +505,7 @@
     </div>
   </section>
 
-  <!-- PORTFOLIO – 4 carousels (functional + modern) -->
+  <!-- PORTFOLIO – 4 carousels (functional + modern, infinite loop) -->
   <section id="portfolio">
     <div class="container">
       <h2 class="section-title">Work Samples</h2>
@@ -612,7 +638,7 @@
           if (currentIndex < slides.length - 1) {
             currentIndex++;
           } else {
-            currentIndex = 0;
+            currentIndex = 0; // loop to first
           }
           track.style.transform = `translateX(-${currentIndex * 100}%)`;
         });
@@ -621,7 +647,7 @@
           if (currentIndex > 0) {
             currentIndex--;
           } else {
-            currentIndex = slides.length - 1;
+            currentIndex = slides.length - 1; // loop to last
           }
           track.style.transform = `translateX(-${currentIndex * 100}%)`;
         });
