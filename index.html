@@ -7,7 +7,6 @@
   
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
   <style>
-  
     * {
       margin: 0;
       padding: 0;
@@ -29,11 +28,10 @@
     }
 
     /* ----- GLOW & TRANSITIONS ----- */
-    .card, .btn, .btn-outline, nav a, .profile-pic, .slide img, .about-img img {
+    .card, .btn, .btn-outline, nav a, .profile-pic, .slide-media, .about-img img {
       transition: all 0.25s ease-in-out;
     }
 
-    
     header {
       background: #121218;          
       border-bottom: 1px solid #2c2c3a;
@@ -117,13 +115,11 @@
       align-items: center;
     }
 
-    /* left column now contains the image */
     .hero-right {
       display: flex;
-      justify-content: flex-start;  /* image aligned left within its column */
+      justify-content: flex-start;
     }
 
-    /* right column now contains the text */
     .hero-left {
       text-align: left;
     }
@@ -184,7 +180,6 @@
       box-shadow: 0 8px 22px rgba(139, 92, 246, 0.3);
     }
 
-    /* ---------- CIRCULAR PROFILE PICTURE (HERO) ---------- */
     .profile-pic {
       max-width: 100%;
       width: 280px;
@@ -200,7 +195,6 @@
       box-shadow: 0 25px 35px -8px #8b5cf6, 0 0 0 3px #a07cff;
     }
 
-    /* ----- SECTION TITLES (violet glow) ----- */
     .section-title {
       text-align: center;
       font-size: 2.5rem;
@@ -221,7 +215,6 @@
       box-shadow: 0 0 12px #8b5cf6;
     }
 
-    /* ----- CARDS (services & skills) ----- */
     .grid {
       display: grid;
       grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
@@ -254,7 +247,7 @@
       color: #b0b0c0;
     }
 
-    /* ----- CAROUSEL (modern sliding, infinite loop) ----- */
+    /* ----- CAROUSEL (modern sliding) ----- */
     .carousel-container {
       margin: 2rem 0;
     }
@@ -291,7 +284,8 @@
       padding: 0.5rem;
     }
 
-    .slide img {
+    /* media inside slides (image, video, link) */
+    .slide-media {
       max-width: 100%;
       max-height: 280px;
       width: auto;
@@ -301,8 +295,49 @@
       transition: border 0.2s;
     }
 
-    .slide img:hover {
+    .slide-media:hover {
       border: 2px solid #8b5cf6;
+    }
+
+    /* video element specific */
+    .slide video.slide-media {
+      max-height: 280px;
+      width: 100%;
+      object-fit: contain;
+      background: #000;
+    }
+
+    /* file link styling for PDF/PSD */
+    .file-link {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      background: #2c2c3a;
+      border-radius: 20px;
+      padding: 1.5rem;
+      text-align: center;
+      text-decoration: none;
+      color: white;
+      border: 2px solid transparent;
+      transition: 0.2s;
+      min-width: 200px;
+    }
+
+    .file-link:hover {
+      border-color: #8b5cf6;
+      transform: scale(1.02);
+      background: #3a3a4a;
+    }
+
+    .file-link span {
+      font-size: 3rem;
+      margin-bottom: 0.5rem;
+    }
+
+    .file-link small {
+      color: #b0b0c0;
+      font-size: 0.9rem;
     }
 
     .prev, .next {
@@ -344,7 +379,6 @@
       justify-content: center;
     }
 
-    /* ---------- CIRCULAR ABOUT IMAGE ---------- */
     .about-img img {
       max-width: 100%;
       width: 280px;
@@ -373,7 +407,6 @@
       margin-bottom: 1rem;
     }
 
-    /* ----- CONTACT BUTTONS (violet) ----- */
     .contact-links {
       display: flex;
       justify-content: center;
@@ -400,7 +433,6 @@
       box-shadow: 0 12px 22px rgba(139,92,246,0.4);
     }
 
-    /* ----- FOOTER ----- */
     footer {
       text-align: center;
       padding: 2rem 0;
@@ -410,14 +442,35 @@
       margin-top: 3rem;
     }
 
-    /* ----- RESPONSIVE ----- */
+    /* ===== RESPONSIVE BREAKPOINTS ===== */
+    /* Tablet (768px - 1024px) */
+    @media (max-width: 1024px) and (min-width: 769px) {
+      .hero-grid {
+        gap: 2rem;
+      }
+      .hero-left h2 {
+        font-size: 2.2rem;
+      }
+      .profile-pic {
+        width: 240px;
+        height: 240px;
+      }
+      .about-img img {
+        width: 240px;
+        height: 240px;
+      }
+      .carousel {
+        padding: 0.75rem;
+      }
+    }
+
+    /* Mobile (up to 768px) */
     @media (max-width: 768px) {
       .hero-grid {
         grid-template-columns: 1fr;
         text-align: center;
         gap: 2rem;
       }
-      /* on mobile, both columns center */
       .hero-left {
         text-align: center;
       }
@@ -436,8 +489,8 @@
         align-items: center;
       }
       .profile-pic {
-        width: 220px;
-        height: 220px;
+        width: 200px;
+        height: 200px;
       }
       .about-grid {
         grid-template-columns: 1fr;
@@ -448,8 +501,34 @@
         text-align: center;
       }
       .about-img img {
-        width: 220px;
-        height: 220px;
+        width: 200px;
+        height: 200px;
+      }
+      .section-title {
+        font-size: 2rem;
+      }
+    }
+
+    /* Small mobile (up to 480px) */
+    @media (max-width: 480px) {
+      .profile-pic {
+        width: 160px;
+        height: 160px;
+      }
+      .about-img img {
+        width: 160px;
+        height: 160px;
+      }
+      .hero-left h2 {
+        font-size: 1.8rem;
+      }
+      .btn, .btn-outline {
+        padding: 0.6rem 1.5rem;
+        font-size: 0.9rem;
+      }
+      .contact-links a {
+        padding: 0.8rem 1.5rem;
+        font-size: 1rem;
       }
     }
   </style>
@@ -476,11 +555,9 @@
   <!-- HOME (image left / text right) -->
   <section id="home" class="hero">
     <div class="container hero-grid">
-      <!-- left column: profile image -->
       <div class="hero-right">
         <img src="images/profile.png" class="profile-pic" alt="Maricris Martinez">
       </div>
-      <!-- right column: text content -->
       <div class="hero-left">
         <h2>Good day, I'm <span>Maricris M. Martinez</span></h2>
         <p>Virtual Assistant supporting e-commerce and creative brands with organization, social media management, and content creation. I help founders streamline daily tasks, manage online communities, schedule posts, and maintain well-organized digital workflows. By combining administrative support with creative skills like graphic design, video editing, and basic web development, I help brands stay consistent, professional, and engaging across their online platforms. I certainly have more rooms for improvements.</p>
@@ -492,7 +569,7 @@
     </div>
   </section>
 
-  <!-- SERVICES (cards, descriptions untouched) -->
+  <!-- SERVICES -->
   <section id="services">
     <div class="container">
       <h2 class="section-title">Services</h2>
@@ -505,67 +582,67 @@
     </div>
   </section>
 
-  <!-- PORTFOLIO – 4 carousels (functional + modern, infinite loop) -->
+  <!-- PORTFOLIO – carousels with dynamic media handling -->
   <section id="portfolio">
     <div class="container">
       <h2 class="section-title">Work Samples</h2>
       <div class="carousel-container" id="carousel-container">
-        <!-- carousel 1 -->
+        <!-- Carousel 1 -->
         <div class="carousel" data-carousel="0">
           <button class="prev" data-carousel-prev>‹</button>
           <div class="carousel-track-wrapper">
             <div class="carousel-track">
-              <div class="slide"><img src="images/sample1.psd" alt="sample 1"></div>
-              <div class="slide"><img src="images/sample2.psd" alt="sample 2"></div>
-              <div class="slide"><img src="images/sample3.png" alt="sample 3"></div>
-              <div class="slide"><img src="images/sample4.pdf" alt="sample 4"></div>
-              <div class="slide"><img src="images/sample5.pdf" alt="sample 5"></div>
-              <div class="slide"><img src="images/sample6.psd" alt="sample 6"></div>
+              <div class="slide"><img class="slide-media" src="images/sample1.psd" alt="sample 1"></div>
+              <div class="slide"><img class="slide-media" src="images/sample2.psd" alt="sample 2"></div>
+              <div class="slide"><img class="slide-media" src="images/sample3.png" alt="sample 3"></div>
+              <div class="slide"><img class="slide-media" src="images/sample4.pdf" alt="sample 4"></div>
+              <div class="slide"><img class="slide-media" src="images/sample5.pdf" alt="sample 5"></div>
+              <div class="slide"><img class="slide-media" src="images/sample6.psd" alt="sample 6"></div>
             </div>
           </div>
           <button class="next" data-carousel-next>›</button>
         </div>
-        <!-- carousel 2 -->
+        <!-- Carousel 2 -->
         <div class="carousel" data-carousel="1">
           <button class="prev" data-carousel-prev>‹</button>
           <div class="carousel-track-wrapper">
             <div class="carousel-track">
-              <div class="slide"><img src="images/sample7.pdf" alt="sample 7"></div>
-              <div class="slide"><img src="images/sample8.png" alt="sample 8"></div>
-              <div class="slide"><img src="images/sample9.pdf" alt="sample 9"></div>
-              <div class="slide"><img src="images/sample10.png" alt="sample 10"></div>
-              <div class="slide"><img src="images/sample11.png" alt="sample 11"></div>
-              <div class="slide"><img src="images/sample12.png" alt="sample 12"></div>
+              <div class="slide"><img class="slide-media" src="images/sample7.pdf" alt="sample 7"></div>
+              <div class="slide"><img class="slide-media" src="images/sample8.png" alt="sample 8"></div>
+              <div class="slide"><img class="slide-media" src="images/sample9.pdf" alt="sample 9"></div>
+              <div class="slide"><img class="slide-media" src="images/sample10.png" alt="sample 10"></div>
+              <div class="slide"><img class="slide-media" src="images/sample11.png" alt="sample 11"></div>
+              <div class="slide"><img class="slide-media" src="images/sample12.png" alt="sample 12"></div>
             </div>
           </div>
           <button class="next" data-carousel-next>›</button>
         </div>
-        <!-- carousel 3 -->
+        <!-- Carousel 3 -->
         <div class="carousel" data-carousel="2">
           <button class="prev" data-carousel-prev>‹</button>
           <div class="carousel-track-wrapper">
             <div class="carousel-track">
-              <div class="slide"><img src="images/sample13.png" alt="sample 13"></div>
-              <div class="slide"><img src="images/sample14.png" alt="sample 14"></div>
-              <div class="slide"><img src="images/sample15.pdf" alt="sample 15"></div>
-              <div class="slide"><img src="images/sample16.psd" alt="sample 16"></div>
-              <div class="slide"><img src="images/sample17.psd" alt="sample 17"></div>
-              <div class="slide"><img src="images/sample18.psd" alt="sample 18"></div>
+              <div class="slide"><img class="slide-media" src="images/sample13.png" alt="sample 13"></div>
+              <div class="slide"><img class="slide-media" src="images/sample14.png" alt="sample 14"></div>
+              <div class="slide"><img class="slide-media" src="images/sample15.pdf" alt="sample 15"></div>
+              <div class="slide"><img class="slide-media" src="images/sample16.psd" alt="sample 16"></div>
+              <div class="slide"><img class="slide-media" src="images/sample17.psd" alt="sample 17"></div>
+              <div class="slide"><img class="slide-media" src="images/sample18.psd" alt="sample 18"></div>
             </div>
           </div>
           <button class="next" data-carousel-next>›</button>
         </div>
-        <!-- carousel 4 -->
+        <!-- Carousel 4 -->
         <div class="carousel" data-carousel="3">
           <button class="prev" data-carousel-prev>‹</button>
           <div class="carousel-track-wrapper">
             <div class="carousel-track">
-              <div class="slide"><img src="images/sample19.psd" alt="sample 19"></div>
-              <div class="slide"><img src="images/sample20.psd" alt="sample 20"></div>
-              <div class="slide"><img src="images/sample21.psd" alt="sample 21"></div>
-              <div class="slide"><img src="images/sample22.mp4" alt="sample 22"></div>
-              <div class="slide"><img src="images/sample23.mp4" alt="sample 23"></div>
-              <div class="slide"><img src="images/sample24.mp4" alt="sample 24"></div>
+              <div class="slide"><img class="slide-media" src="images/sample19.psd" alt="sample 19"></div>
+              <div class="slide"><img class="slide-media" src="images/sample20.psd" alt="sample 20"></div>
+              <div class="slide"><img class="slide-media" src="images/sample21.psd" alt="sample 21"></div>
+              <div class="slide"><img class="slide-media" src="images/sample22.mp4" alt="sample 22"></div>
+              <div class="slide"><img class="slide-media" src="images/sample23.mp4" alt="sample 23"></div>
+              <div class="slide"><img class="slide-media" src="images/sample24.mp4" alt="sample 24"></div>
             </div>
           </div>
           <button class="next" data-carousel-next>›</button>
@@ -574,7 +651,7 @@
     </div>
   </section>
 
-  <!-- SKILLS (exact same descriptions) -->
+  <!-- SKILLS -->
   <section id="skills">
     <div class="container">
       <h2 class="section-title">Tools & Skills</h2>
@@ -587,13 +664,12 @@
     </div>
   </section>
 
- 
+  <!-- ABOUT -->
   <section id="about">
     <div class="container">
       <h2 class="section-title">About Me</h2>
       <div class="about-grid">
         <div class="about-img">
-          <!-- about image (circular) -->
           <img src="images/about.png" alt="Maricris Martinez">
         </div>
         <div class="about-text">
@@ -603,7 +679,7 @@
     </div>
   </section>
 
-  <!-- CONTACT (links unchanged) -->
+  <!-- CONTACT -->
   <section id="contact">
     <div class="container">
       <h2 class="section-title">Contact</h2>
@@ -622,8 +698,54 @@
 
   <script>
     (function() {
+      // Function to convert file extension to proper media element
+      function createMediaElement(src, alt) {
+        const ext = src.split('.').pop().toLowerCase();
+        const container = document.createElement('div');
+        container.className = 'slide-media';
+        
+        if (ext === 'mp4') {
+          const video = document.createElement('video');
+          video.src = src;
+          video.controls = true;
+          video.className = 'slide-media';
+          video.style.maxHeight = '280px';
+          video.style.width = '100%';
+          video.style.objectFit = 'contain';
+          return video;
+        } else if (ext === 'pdf' || ext === 'psd') {
+          // For non-displayable files, create a download card
+          const link = document.createElement('a');
+          link.href = src;
+          link.target = '_blank';
+          link.className = 'file-link';
+          link.innerHTML = `<span>📁</span><strong>${src.split('/').pop()}</strong><small>Click to view/download</small>`;
+          return link;
+        } else {
+          // Assume image (png, jpg, etc.)
+          const img = document.createElement('img');
+          img.src = src;
+          img.alt = alt;
+          img.className = 'slide-media';
+          img.style.maxHeight = '280px';
+          img.style.width = 'auto';
+          return img;
+        }
+      }
+
+      // Replace all slide images with appropriate media
+      document.querySelectorAll('.slide').forEach(slide => {
+        const img = slide.querySelector('img.slide-media');
+        if (!img) return;
+        const src = img.getAttribute('src');
+        const alt = img.getAttribute('alt') || '';
+        const newMedia = createMediaElement(src, alt);
+        slide.innerHTML = ''; // clear original img
+        slide.appendChild(newMedia);
+      });
+
+      // Carousel functionality (infinite loop)
       const carousels = document.querySelectorAll('.carousel');
-      
       carousels.forEach(carousel => {
         const track = carousel.querySelector('.carousel-track');
         const slides = Array.from(track.children);
@@ -631,14 +753,13 @@
         const nextButton = carousel.querySelector('[data-carousel-next]');
         
         let currentIndex = 0;
-        
         track.style.transform = 'translateX(0%)';
         
         nextButton.addEventListener('click', () => {
           if (currentIndex < slides.length - 1) {
             currentIndex++;
           } else {
-            currentIndex = 0; // loop to first
+            currentIndex = 0;
           }
           track.style.transform = `translateX(-${currentIndex * 100}%)`;
         });
@@ -647,14 +768,13 @@
           if (currentIndex > 0) {
             currentIndex--;
           } else {
-            currentIndex = slides.length - 1; // loop to last
+            currentIndex = slides.length - 1;
           }
           track.style.transform = `translateX(-${currentIndex * 100}%)`;
         });
       });
     })();
   </script>
-  
   <script src="script.js"></script>
 </body>
 </html>
